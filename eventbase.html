@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dead by Daylight Wiki</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-md navbar-dark bg-black">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logoicon.png" alt="Logo" style="height: 40px; width: auto;">
+                <span class="fs-4 fw-bold ms-2">Dead by Daylight Wikia</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Homepage</a></li>
+                    <li class="nav-item"><a class="nav-link" href="charactersbase.html">Characters</a></li>
+                    <li class="nav-item"><a class="nav-link" href="realmbase.html">The Realm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contactbase.html">Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container text-center py-5">
+        <h1 class="mb-4">Roam the Fog</h1>
+        <p class="lead">Click the button to explore the fog, you might just make it out alive.</p>
+        <button class="btn btn-danger btn-lg" id="encounterButton">Explore</button>
+        <div id="killerAlert" class="alert alert-warning mt-4 d-none" role="alert">
+            <strong>Warning!</strong> Be wary as you continue!
+        </div>
+        <div class="modal fade" id="killerModal" tabindex="-1" aria-labelledby="killerModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="killerModalLabel">Encounter Info</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="killerImage" src="" alt="Killer Image" class="img-fluid mb-3">
+                        <p id="killerName">Loading...</p>
+                        <p id="killerDescription">Please wait...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Return</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const killers = [
+        {
+        name: "The Trapper",
+        description: "The Trapper has set a bear trap in this area, ensnaring you as you venture forth.  Your fate is sealed.",
+        image: "images/trapperbanner.webp",
+        sound: "sounds/trapped.mp3"
+        },
+        {
+        name: "The Wraith",
+        description: "An invisible threat as snuck up upon you, your only warning a ominous bell as the sound of bones and blade encroach you...",
+        image: "images/wraithrender.webp",
+        sound: "sounds/bell.mp3"
+        },
+        {
+        name: "Treasure Chest",
+        description: "A chest that may contain a valuable item...",
+        image: "images/ChestRender.webp",
+        sound: "sounds/chest.mp3"
+        },
+
+        ];
+
+        function getRandomKiller() {
+        const randomIndex = Math.floor(Math.random() * killers.length);
+        return killers[randomIndex];
+        }
+
+        document.getElementById('encounterButton').addEventListener('click', function () {
+        const killer = getRandomKiller();
+
+        const alertBox = document.getElementById('killerAlert');
+        alertBox.classList.remove('d-none');
+
+        document.getElementById('killerName').textContent = killer.name;
+        document.getElementById('killerDescription').textContent = killer.description;
+        document.getElementById('killerImage').src = killer.image;
+
+        const audio = new Audio(killer.sound);
+        audio.play();
+
+        const modal = new bootstrap.Modal(document.getElementById('killerModal'));
+        modal.show();
+        });
+    </script>
+    <footer class="text-center py-3 bg-black text-white">
+        <p>&copy; 2025 DbD Wiki. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
