@@ -8,14 +8,27 @@ The following sections of the website contain the specified major tasks:
 --
 
 Task 0; Readme: You are Here!
+
 Task 1; Header: Is found on the landing page, Index.
+
 Task 2; Banner Section: Is also found on the landing page,	the Welcome to the Fog.
+
 Task 3; Single Item Carousel: [UNFINISHED]
+
 Task 4; Multiple Item Carousel: This unfinished, buggy mess is found on the bottom of the landing page.
+
 Task 5; Drop Down Menus: This is found on the contact page under the form.
+
 Task 6; Section with an Aside: This one is a bit deeper in, found on the Trappers page, trapper.html
-                               [LINK HERE]
+
+https://colebiefrey.github.io/atlas-bootstrap/trapper.html
+
 Task 7; Free Section: On the main page, the Events section sends you to a fun encounter roullette!
-                      [LINK HERE]
+
+https://colebiefrey.github.io/atlas-bootstrap/eventbase.html
+
 Task 8; Footer: Its everywhere!
-Task 9; Host to Github Pages: [LINK HERE]
+
+Task 9; Host to Github Pages:
+
+https://colebiefrey.github.io/atlas-bootstrap/index.html
